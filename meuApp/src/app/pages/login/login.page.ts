@@ -27,7 +27,7 @@ export class LoginPage {
       const sucesso = await this.authService.login(this.email, this.senha);
       
       if (sucesso) {
-        this.router.navigate(['/dashboard']);
+        this.router.navigate(['/home']);
       } else {
         this.mostrarMensagem('Email ou senha inválidos');
       }

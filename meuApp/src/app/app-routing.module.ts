@@ -36,6 +36,10 @@ const routes: Routes = [
     path: 'corridas',
     loadChildren: () => import('./pages/corridas/corridas.module').then(m => m.CorridasPageModule),
     canActivate: [AuthGuard]
+  },
+  {
+    path: 'home',
+    loadComponent: () => import('./pages/home/home.page').then(m => m.HomePage)
   }
 ];
 
