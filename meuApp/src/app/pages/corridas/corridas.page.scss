@@ -1,0 +1,153 @@
+ion-content {
+  --background: #f6f6f6;
+}
+
+ion-card {
+  margin: 16px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
+  ion-card-header {
+    background: var(--ion-color-primary);
+    color: var(--ion-color-taxi-black);
+    border-radius: 10px 10px 0 0;
+  }
+
+  ion-card-content {
+    background: var(--ion-color-taxi-gray);
+    border-radius: 0 0 10px 10px;
+  }
+}
+
+ion-card-title {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: #222;
+}
+
+ion-item {
+  --padding-start: 16px;
+  --padding-end: 16px;
+  margin: 8px 0;
+  border-radius: 8px;
+  --background: var(--ion-color-taxi-gray);
+
+  ion-label {
+    h2 {
+      font-weight: bold;
+      color: var(--ion-color-taxi-black);
+    }
+
+    p {
+      color: var(--ion-color-taxi-black);
+      opacity: 0.8;
+    }
+  }
+}
+
+ion-label {
+  color: #888;
+}
+
+ion-input {
+  font-size: 1.1rem;
+  color: #222;
+}
+
+ion-button {
+  margin-top: 18px;
+  border-radius: 12px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+ion-list {
+  background: #fff;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+}
+
+ion-item[ng-reflect-ng-for-of] {
+  cursor: pointer;
+}
+
+ion-toolbar {
+  --background: var(--ion-color-primary);
+  --color: var(--ion-color-taxi-black);
+}
+
+.datetime-popover {
+  position: fixed;
+  left: 30%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1000;
+  background: #fff;
+  border-radius: 18px;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.18);
+  padding: 10px 10px 16px 10px;
+  width: 260px;
+  max-width: 95vw;
+  min-height: 400px; /* Aumente se necessário */
+  max-height: 95vh;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+ion-datetime {
+  width: 230px;
+  --min-width: 230px;
+  font-size: 1em;
+  margin-bottom: 12px;
+}
+
+.ok-btn {
+  margin-top: 10px;
+  width: 90px;
+  height: 36px;
+  font-size: 1em;
+  --border-radius: 8px;
+  --background: var(--ion-color-primary);
+  --color: #fff;
+  align-self: center;
+}
+
+.agendamento-row {
+  display: flex;
+  gap: 8px;
+  width: 100%;
+  justify-content: flex-start;
+}
+
+.agendamento-row ion-item {
+  flex: 1 1 0;
+  margin: 0;
+}
+
+.agendamento-row ion-col {
+  padding: 0;
+  display: flex;
+  align-items: center;
+}
+
+.agendamento-row ion-input[type="date"] {
+  flex: 0 0 110px;
+  max-width: 120px;
+  min-width: 90px;
+  font-size: 0.95em;
+  padding: 4px 6px;
+   
+}
+
+.agendamento-row ion-input[type="time"] {
+  flex: 0 0 73px;
+  max-width: 80px;
+  min-width: 60px;
+  font-size: 0.95em;
+  padding: 4px 6px; 
+  
+}

@@ -6,7 +6,7 @@
       "cpf": "12345678900",
       "telefone": "11999999999",
       "email": "joao@email.com",
-      "status": "ativo"
+      "status": "inativo"
     },
     {
       "id": "2",
@@ -14,7 +14,7 @@
       "cpf": "98765432100",
       "telefone": "11988888888",
       "email": "maria@email.com",
-      "status": "inativo"
+      "status": "ativo"
     },
     {
       "id": "4",
@@ -22,7 +22,18 @@
       "cpf": "00522877931",
       "telefone": "48999464542",
       "email": "marcosdejesuspatriotaicara@gmail.com",
-      "status": "ativo"
+      "status": "inativo"
+    }
+  ],
+  "corridas": [
+    {
+      "id": "19a4",
+      "origem": "Içara",
+      "destino": "Criciuma",
+      "status": "finalizada",
+      "data": "2025-05-19T22:25:00",
+      "passageiro": "Marcos Silveira de Jesus",
+      "dataFormatada": "19/05/2025 22:25"
     }
   ]
 }

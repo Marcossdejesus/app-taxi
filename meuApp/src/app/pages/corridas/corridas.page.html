@@ -1,16 +1,93 @@
-<ion-header [translucent]="true">
+<ion-header>
   <ion-toolbar>
     <ion-buttons slot="start">
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
-    <ion-title>corridas</ion-title>
+    <ion-title>Nova Corrida</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">corridas</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Adicionar Corrida</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <form>
+        <ion-item>
+          <ion-label position="floating">Cliente</ion-label>
+          <ion-input
+            [(ngModel)]="clienteBusca"
+            name="clienteBusca"
+            (ionInput)="buscarCliente($event)"
+            required>
+          </ion-input>
+        </ion-item>
+        <ion-list *ngIf="clientesFiltrados.length">
+          <ion-item *ngFor="let cliente of clientesFiltrados" (click)="selecionarCliente(cliente)">
+            {{ cliente.nome }}
+          </ion-item>
+        </ion-list>
+        <ion-button *ngIf="mostrarCadastrarCliente" (click)="abrirCadastroCliente()">
+          Cadastrar novo cliente
+        </ion-button>
+
+        <ion-item>
+          <ion-label position="floating">Endereço Origem</ion-label>
+          <ion-input [(ngModel)]="origem" name="origem" (ionInput)="buscarEnderecos($event, 'origem')" required></ion-input>
+        </ion-item>
+        <ion-list *ngIf="sugestoesOrigem.length">
+          <ion-item *ngFor="let sugestao of sugestoesOrigem" (click)="selecionarEndereco(sugestao, 'origem')">
+            {{ sugestao.description }}
+          </ion-item>
+        </ion-list>
+
+        <ion-item>
+          <ion-label position="floating">Endereço Destino</ion-label>
+          <ion-input [(ngModel)]="destino" name="destino" (ionInput)="buscarEnderecos($event, 'destino')" required></ion-input>
+        </ion-item>
+        <ion-list *ngIf="sugestoesDestino.length">
+          <ion-item *ngFor="let sugestao of sugestoesDestino" (click)="selecionarEndereco(sugestao, 'destino')">
+            {{ sugestao.description }}
+          </ion-item>
+        </ion-list>
+
+        <!-- Data do Agendamento (Data e Hora lado a lado, com label único) -->
+        <ion-item>
+          <ion-label position="floating">Data do Agendamento</ion-label>
+          <div class="agendamento-row">
+            <ion-input
+              type="date"
+              [(ngModel)]="dataAgendamento"
+              name="dataAgendamento">
+            </ion-input>
+            <ion-input
+              type="time"
+              [(ngModel)]="horaAgendamento"
+              name="horaAgendamento">
+            </ion-input>
+          </div>
+        </ion-item>
+
+        <ion-button (click)="solicitarCorrida()">Solicitar Corrida</ion-button>
+      </form>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-list>
+    <ion-item *ngFor="let corrida of corridas">
+      <ion-label>
+        <h2>{{ corrida.origem }} → {{ corrida.destino }}</h2>
+        <p>Status: {{ corrida.status }}</p>
+        <p>Passageiro: {{ corrida.passageiro }}</p>
+        <p>Data: {{ corrida.dataFormatada }}</p>
+      </ion-label>
+      <ion-button color="primary" fill="clear" (click)="editarCorrida(corrida)">
+        Editar
+      </ion-button>
+      <ion-button color="danger" fill="clear" (click)="excluirCorrida(corrida.id)">
+        Excluir
+      </ion-button>
+    </ion-item>
+  </ion-list>
 </ion-content>
